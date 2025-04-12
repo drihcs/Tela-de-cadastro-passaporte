@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Página de cadastro para solicitação de passaporte" />
   <title>Solicitação de Passaporte - Polícia Federal</title>
 
-  
+
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/components.css" />
 </head>
+
 <body>
   <main>
     <div id="cabecalho">
@@ -20,11 +22,12 @@
 
     <div id="container">
       <p class="aviso" id="aviso">
-        Não utilize o botão voltar do seu navegador, pois todos os dados serão perdidos. Utilize apenas os botões do próprio formulário.
+        Não utilize o botão voltar do seu navegador, pois todos os dados serão perdidos. Utilize apenas os botões do
+        próprio formulário.
       </p>
       <h4>Nova solicitação de passaporte</h4>
 
-    
+
       <div class="tab-buttons">
         <button class="tab-btn active" data-tab="dados-pessoais">Dados Pessoais</button>
         <button class="tab-btn" data-tab="documentos">Documentos</button>
@@ -33,7 +36,7 @@
       </div>
 
       <form method="post" action="">
-       
+
         <div id="dados-pessoais" class="tab-panel active">
           <h5>Dados Pessoais</h5>
 
@@ -70,14 +73,20 @@
             </select>
           </div>
 
-          <div class="form-group">
-            <label for="data-nascimento">Data de Nascimento*:</label>
-            <input type="date" id="data-nascimento" name="data_nascimento" required />
-          </div>
+          <div class="date">
 
-          <div class="form-group">
-            <label><input type="checkbox" name="emancipado" /> Emancipado</label>
-            <label><input type="checkbox" name="adocao_internacional" /> Adoção Internacional</label>
+            <div class="linha-horizontal">
+              <label for="dataNascimento">Data de Nascimento:</label>
+              <input type="text" name="dataNascimento" maxlength="10" id="dataNascimento" class="date obrigatorio"
+                title="formato: dia e mês com dois dígitos, ano com 4 dígitos" placeholder="__/__/____"
+                autocomplete="off" aria-required="true">
+
+              <label>
+                <input type="checkbox" name="emancipado" /> Emancipado</label>
+              <label>
+                <input type="checkbox" name="adocao_internacional" /> Adoção Internacional</label>
+            </div>
+
           </div>
 
           <div class="form-group">
@@ -92,9 +101,6 @@
               <option value="outra">Outras</option>
               <option value="nao_declara">Não desejo declarar</option>
             </select>
-          </div>
-
-          <div class="form-group">
             <label for="estado-civil">Estado Civil:</label>
             <select id="estado-civil" name="estado_civil">
               <option value=""></option>
@@ -124,18 +130,18 @@
               <option value=""></option>
               <option value="brasil">Brasil</option>
               <option value="outro">Outro país</option>
-              </select>
-              <label for="UF">UF*:</label>
-              <select id="UF" name="UF">
-                <option value=""></option>
-                <option value="brasil">Ceará</option>
-                <option value="outro">Outro estado</option>
-              </select>
+            </select>
+            <label for="UF">UF*:</label>
+            <select id="UF" name="UF">
+              <option value=""></option>
+              <option value="brasil">Ceará</option>
+              <option value="outro">Outro estado</option>
+            </select>
             </select>
           </div>
 
           <div class="form-group">
-           
+
           </div>
 
           <div class="form-group">
@@ -152,14 +158,19 @@
             <div class="linha-horizontal">
               <label for="nome">Nome anterior*:</label>
               <input type="text" name="nome" placeholder="Nome Completo" />
+
+            </div>
+
+            <div>
               <label for="motivo-mudanca">Motivo da mudança:</label>
               <select name="motivo-mudanca" class="select-menor">
                 <option value=""></option>
-                <option value="masc">Masculino</option>
-                <option value="fem">Feminino</option>
+                <option value="4">Alteração por Mudança de Estado Civil</option>
+                <option value="5">Alteração por Decisão Judicial</option>
+                <option value="9">Alteração por Registro em Cartório - Provimento 73/2018 Cnj</option>
               </select>
+              <input type="button" value="adicionar" id="adicionar" class="btn btn-primary btn-command" />
             </div>
-
           </div>
 
           <div class="comandos">
@@ -167,26 +178,223 @@
           </div>
         </div>
 
-     
+
         <div id="documentos" class="tab-panel">
           <h5>Documentos</h5>
-          <p>Conteúdo da aba Documentos...</p>
+          
+            <div class="linha-horizontal">
+              <label for="numeroDocumento">Número:</label>
+              <input type="text" id="numeroDocumento" name="numeroDocumento">
+              <label for="dataEmissao">Data de emissão:</label>
+              <input type="text" id="dataEmissao" name="dataEmissao" placeholder="__/__/____">
+            </div>
+          
+            <div class="linha-horizontal">
+              <label for="orgaoEmissor">Órgão emissor:</label>
+              <input type="text" id="orgaoEmissor" name="orgaoEmissor">
+              <label for="ufExpedicaoDoc">UF de expedição:</label>
+              <select id="ufExpedicaoDoc" name="ufExpedicaoDoc" class="select-menor">
+                <option value="">Selecione</option>
+                <!-- opções de estados -->
+              </select>
+            </div>
+          
+            <h5>CPF</h5>
+          
+            <div class="linha-horizontal">
+              <label for="cpf">CPF:</label>
+              <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__">
+              <label for="cpfResponsavel">CPF do responsável:</label>
+              <input type="text" id="cpfResponsavel" name="cpfResponsavel" placeholder="___.___.___-__">
+            </div>
+          
+            <h5>Certidão</h5>
+          
+            <div class="linha-horizontal">
+              <label for="certidaoModeloNovo">Certidão modelo novo?</label>
+              <select id="certidaoModeloNovo" name="certidaoModeloNovo" class="select-menor">
+                <option value="">Selecione</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+              </select>
+            </div>
+          
+            <div class="linha-horizontal">
+              <label for="matricula">Matrícula:</label>
+              <input type="text" id="matricula" name="matricula">
+            </div>
+          
+            <div class="linha-horizontal">
+              <label for="tipoCertidao">Tipo:</label>
+              <input type="text" id="tipoCertidao" name="tipoCertidao">           
+              <label for="numeroCertidao">Número:</label>
+              <input type="text" id="numeroCertidao" name="numeroCertidao">          
+              <label for="livro">Livro:</label>
+              <input type="text" id="livro" name="livro">
+            </div>
+          
+            <div class="linha-horizontal">
+              <label for="folha">Folha:</label>
+              <input type="text" id="folha" name="folha">           
+              <label for="cartorio">Cartório:</label>
+              <input type="text" id="cartorio" name="cartorio">
+            </div>
+          
+            <div class="linha-horizontal">
+              <label for="ufExpedicaoCertidao">UF de expedição:</label>
+              <select id="ufExpedicaoCertidao" name="ufExpedicaoCertidao" class="select-menor">
+                <option value="">Selecione</option>               
+              </select>           
+              <label for="cidadeExpedicao">Cidade de expedição:</label>
+              <input type="text" id="cidadeExpedicao" name="cidadeExpedicao">
+            </div>
+          
+            <h5>Passaporte Anterior</h5>
+          
+            <div class="linha-horizontal">
+              <label for="situacaoPassaporte">Situação*:</label>
+              <select id="situacaoPassaporte" name="situacaoPassaporte" class="select-menor">
+                <option value="">Selecione</option>
+                <option value="valido">Válido</option>
+                <option value="expirado">Expirado</option>
+                <option value="extraviado">Extraviado</option>
+                <option value="nuncaTeve">Nunca teve</option>
+              </select>
+            </div>
+          
+            <div class="linha-horizontal">
+              <label for="seriePassaporte">Série:</label>
+              <input type="text" id="seriePassaporte" name="seriePassaporte">
+              <label for="numeroPassaporte">Número:</label>
+              <input type="text" id="numero" name="numero">
+              <small>(Exemplo: Para o passaporte CP999999 a série é CP e o número é 999999.)</small>
+            </div>
+          
+          </div>
+
           <div class="comandos">
             <input type="button" value="Anterior" id="anterior1" class="btn btn-primary btn-command" />
             <input type="button" value="Próximo" id="proximo2" class="btn btn-primary btn-command" />
           </div>
         </div>
 
-    
+
         <div id="dados-complementares" class="tab-panel">
           <h5>Dados Complementares</h5>
-          <p>Conteúdo da aba Dados Complementares...</p>
-        </div>
+            <form>
+              <section>
+                <label for="profissao">Profissão*</label>
+                <input type="text" id="profissao" name="profissao" required>
+              </section>
+          
+              <section>
+                <label for="email">E-mail*</label>
+                <input type="email" id="email" name="email" required>
+              </section>
+          
+              <section>
+                <label for="confirmarEmail">Confirmação do E-mail*</label>
+                <input type="email" id="confirmarEmail" name="confirmarEmail" required>
+              </section>
+          
+              <h5 style="grid-column: 1 / -1;">Endereço do Requerente</h5>
+          
+              <section>
+                <label for="pais">País*</label>
+                <input type="text" id="pais" name="pais" value="BRASIL" readonly>
+              </section>
+          
+              <section>
+                <label for="cep">CEP*</label>
+                <input type="text" id="cep" name="cep" placeholder="_____-___" required>
+              </section>
+          
+              <section>
+                <label for="uf">UF*</label>
+                <select id="uf" name="uf" required>
+                  <option value="">Selecione</option>
+                  <!-- Colocar opções de estados aqui -->
+                </select>
+              </section>
+          
+              <section>
+                <label for="estado">Estado*</label>
+                <input type="text" id="estado" name="estado" required>
+              </section>
+          
+              <section>
+                <label for="cidade">Cidade*</label>
+                <input type="text" id="cidade" name="cidade" required>
+              </section>
+          
+              <section>
+                <label for="logradouro">Logradouro*</label>
+                <input type="text" id="logradouro" name="logradouro" required>
+              </section>
+          
+              <section>
+                <label for="bairro">Distrito/Bairro*</label>
+                <input type="text" id="bairro" name="bairro" required>
+              </section>
+          
+              <section>
+                <label for="ddd">DDD</label>
+                <input type="text" id="ddd" name="ddd">
+              </section>
+          
+              <section>
+                <label for="telefone">Telefone</label>
+                <input type="text" id="telefone" name="telefone">
+              </section>
+            </form>
+          </div>
 
-      
         <div id="revisar-dados" class="tab-panel">
           <h5>Revisar Dados</h5>
-          <p>Resumo para revisão antes de enviar...</p>
+              <section>
+                <p><strong>Confira atentamente as informações abaixo:</strong></p>
+                <p>Caso detecte algum erro nos dados a seguir, volte ao campo correspondente para corrigir. Erro em algum desses campos implicará em <strong>ATRASO</strong> na entrega do seu passaporte.</p>
+                <p>Seguindo o padrão internacional ICAO, os sobrenomes poderão ser abreviados na impressão do documento de viagem.</p>
+              </section>
+            
+              <section>
+                <label for="nomeCompleto">Nome Completo</label>
+                <input type="text" id="nomeCompleto" name="nomeCompleto" readonly>
+              </section>
+            
+              <section>
+                <label for="nacionalidade">Nacionalidade</label>
+                <input type="text" id="nacionalidade" name="nacionalidade" value="BRASIL" readonly>
+              </section>
+            
+              <section>
+                <label for="dataNascimentoRevisao">Data de Nascimento</label>
+                <input type="text" id="dataNascimentoRevisao" name="dataNascimentoRevisao" readonly>
+              </section>
+            
+              <section>
+                <label for="sexo">Sexo</label>
+                <input type="text" id="sexo" name="sexo" readonly>
+              </section>
+            
+              <section>
+                <label for="naturalidade">Naturalidade</label>
+                <input type="text" id="naturalidade" name="naturalidade" readonly>
+              </section>
+            
+              <section>
+                <label for="filiacao">Filiação</label>
+                <input type="text" id="filiacao" name="filiacao" readonly>
+              </section>
+            
+              <section>
+                <input type="checkbox" id="declaracao" name="declaracao" required>
+                <label for="declaracao">
+                  Declaro que as informações acima estão corretas e que estou ciente de que qualquer erro nos dados implicará em atraso na emissão do meu documento de viagem.
+                </label>
+              </section>
+            </div>
+
           <div class="comandos">
             <input type="button" value="Anterior" id="anterior3" class="btn btn-primary btn-command" />
             <input type="submit" value="Enviar" id="btnEnviar" class="btn btn-primary btn-command" />
@@ -198,4 +406,5 @@
 
   <script src="src/js/script.js"></script>
 </body>
+
 </html>

@@ -63,3 +63,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+function alinharCampo(input) {
+  const container = input.parentElement;
+  container.classList.add('alinhado');
+}
+
+function preencherDadosRevisao() {
+  // Preenchendo os campos com os valores inseridos nas abas anteriores
+  document.getElementById('nomeCompleto').value = document.getElementById('nome').value || '';
+  document.getElementById('nacionalidade').value = 'BRASIL'; // Nacionalidade fixa para o Brasil
+  document.getElementById('dataNascimentoRevisao').value = document.getElementById('dataNascimento').value || '';
+  document.getElementById('sexo').value = document.getElementById('sexo').value || '';
+  document.getElementById('naturalidade').value = document.getElementById('naturalidade').value || '';
+  document.getElementById('filiacao').value = document.getElementById('filiacao').value || '';
+}
+
+// Chamar a função preencherDadosRevisao quando a aba de Revisão for ativada
+document.querySelectorAll('.tab-buttons input').forEach(function(tab) {
+  tab.addEventListener('change', function() {
+      if (document.getElementById('tab4').checked) {  // Verifica se a aba de Revisão foi ativada
+          preencherDadosRevisao();
+      }
+  });
+});
