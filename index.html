@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página de cadastro para solicitação de passaporte" />
+  <title>Solicitação de Passaporte - Polícia Federal</title>
+
+  
+  <link rel="stylesheet" href="src/css/style.css" />
+  <link rel="stylesheet" href="src/css/components.css" />
+</head>
+<body>
+  <main>
+    <div id="cabecalho">
+      <img src="src/images/logo-pf.png" alt="Logo Polícia Federal" />
+      <h2>Divisão de Passaporte</h2>
+      <h6>Coordenação-Geral de Polícia de Imigração</h6>
+    </div>
+
+    <div id="container">
+      <p class="aviso" id="aviso">
+        Não utilize o botão voltar do seu navegador, pois todos os dados serão perdidos. Utilize apenas os botões do próprio formulário.
+      </p>
+      <h4>Nova solicitação de passaporte</h4>
+
+    
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="dados-pessoais">Dados Pessoais</button>
+        <button class="tab-btn" data-tab="documentos">Documentos</button>
+        <button class="tab-btn" data-tab="dados-complementares">Dados Complementares</button>
+        <button class="tab-btn" data-tab="revisar-dados">Revisar Dados</button>
+      </div>
+
+      <form method="post" action="">
+       
+        <div id="dados-pessoais" class="tab-panel active">
+          <h5>Dados Pessoais</h5>
+
+          <div class="linha-horizontal">
+            <label for="nome">Nome Completo*:</label>
+            <input type="text" name="nome" placeholder="Nome Completo" />
+            <label for="sexo">Sexo*:</label>
+            <select name="sexo" class="select-menor">
+              <option value="">Sexo</option>
+              <option value="masc">Masculino</option>
+              <option value="fem">Feminino</option>
+            </select>
+          </div>
+
+          <div class="linha-horizontal">
+            <label for="filiacao1">Filiação 1:</label>
+            <input type="text" name="filiacao1" placeholder="Nome Completo" />
+            <label for="sexo_filiacao1">Sexo:</label>
+            <select name="sexo_filiacao1" class="select-menor">
+              <option value="">Sexo</option>
+              <option value="masc">Masculino</option>
+              <option value="fem">Feminino</option>
+            </select>
+          </div>
+
+          <div class="linha-horizontal">
+            <label for="filiacao2">Filiação 2:</label>
+            <input type="text" name="filiacao2" placeholder="Nome Completo" />
+            <label for="sexo_filiacao2">Sexo:</label>
+            <select name="sexo_filiacao2" class="select-menor">
+              <option value="">Sexo</option>
+              <option value="masc">Masculino</option>
+              <option value="fem">Feminino</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="data-nascimento">Data de Nascimento*:</label>
+            <input type="date" id="data-nascimento" name="data_nascimento" required />
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="emancipado" /> Emancipado</label>
+            <label><input type="checkbox" name="adocao_internacional" /> Adoção Internacional</label>
+          </div>
+
+          <div class="form-group">
+            <label for="raca">Raça ou Cor*:</label>
+            <select id="raca" name="raca" required>
+              <option value=""></option>
+              <option value="branca">Branca</option>
+              <option value="preta">Preta</option>
+              <option value="parda">Parda</option>
+              <option value="amarela">Amarela</option>
+              <option value="indigena">Indígena</option>
+              <option value="outra">Outras</option>
+              <option value="nao_declara">Não desejo declarar</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="estado-civil">Estado Civil:</label>
+            <select id="estado-civil" name="estado_civil">
+              <option value=""></option>
+              <option value="solteiro">Solteiro(a)</option>
+              <option value="casado">Casado(a)</option>
+              <option value="viuvo">Viúvo(a)</option>
+              <option value="separado">Separado(a)</option>
+              <option value="divorciado">Divorciado(a)</option>
+              <option value="uniao_estavel">União Estável</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="nacionalidade-pais">Nacionalidade:</label>
+            <select id="nacionalidade-pais" name="nacionalidade">
+              <option value=""></option>
+              <option value="brasil">Brasil</option>
+              <option value="outro">Outro país</option>
+            </select>
+            <small>(Para brasileiros com múltipla nacionalidade, selecionar Brasil)</small>
+          </div>
+
+          <div class="form-group">
+            <h5>Local de nascimento</h5>
+            <label for="pais">País*:</label>
+            <select id="pais" name="pais">
+              <option value=""></option>
+              <option value="brasil">Brasil</option>
+              <option value="outro">Outro país</option>
+              </select>
+              <label for="UF">UF*:</label>
+              <select id="UF" name="UF">
+                <option value=""></option>
+                <option value="brasil">Ceará</option>
+                <option value="outro">Outro estado</option>
+              </select>
+            </select>
+          </div>
+
+          <div class="form-group">
+           
+          </div>
+
+          <div class="form-group">
+            <label for="cidade">Cidade:</label>
+            <select id="cidade" name="cidade">
+              <option value=""></option>
+              <option value="brasil">Fortaleza</option>
+              <option value="outro">Outra cidade</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <h5>Nomes anteriores</h5>
+            <div class="linha-horizontal">
+              <label for="nome">Nome anterior*:</label>
+              <input type="text" name="nome" placeholder="Nome Completo" />
+              <label for="motivo-mudanca">Motivo da mudança:</label>
+              <select name="motivo-mudanca" class="select-menor">
+                <option value=""></option>
+                <option value="masc">Masculino</option>
+                <option value="fem">Feminino</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="comandos">
+            <input type="button" value="Próximo" id="proximo1" class="btn btn-primary btn-command" />
+          </div>
+        </div>
+
+     
+        <div id="documentos" class="tab-panel">
+          <h5>Documentos</h5>
+          <p>Conteúdo da aba Documentos...</p>
+          <div class="comandos">
+            <input type="button" value="Anterior" id="anterior1" class="btn btn-primary btn-command" />
+            <input type="button" value="Próximo" id="proximo2" class="btn btn-primary btn-command" />
+          </div>
+        </div>
+
+    
+        <div id="dados-complementares" class="tab-panel">
+          <h5>Dados Complementares</h5>
+          <p>Conteúdo da aba Dados Complementares...</p>
+        </div>
+
+      
+        <div id="revisar-dados" class="tab-panel">
+          <h5>Revisar Dados</h5>
+          <p>Resumo para revisão antes de enviar...</p>
+          <div class="comandos">
+            <input type="button" value="Anterior" id="anterior3" class="btn btn-primary btn-command" />
+            <input type="submit" value="Enviar" id="btnEnviar" class="btn btn-primary btn-command" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="src/js/script.js"></script>
+</body>
+</html>
